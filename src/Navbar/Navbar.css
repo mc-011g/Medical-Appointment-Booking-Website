@@ -1,0 +1,67 @@
+nav {
+    justify-content: space-between;
+    display: flex;
+    left: 0px;
+    top: 0px;
+    position: sticky;  
+    padding-right: 30px;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+.nav-btns {
+    display: flex;
+    gap: 20px;
+}
+
+/* Navbar Button */
+.nav-btn {  
+    width: 150px;
+    height: 80px;   
+    font-size: 20px;
+    background: none;
+    border: none;
+    padding: 0px;
+    cursor: pointer;
+}
+
+/* Large Button */
+.large-btn {
+    box-sizing: border-box;  
+    width: 200px;
+    height: 80px;   
+    background: #FFFFFF;
+    border: 1px solid #5685FF;
+    border-radius: 60px; 
+    font-size: 20px;
+    padding: 0px;
+    cursor: pointer;
+}
+
+.large-btn:hover {
+    background-color: #5685FF;
+    color: white;
+}
+
+/* Navbar Logo */
+.nav-logo {    
+    width: 300px;
+    height: 80px;  
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 48px;
+    display: flex;
+    align-items: center;
+    text-align: center;    
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+

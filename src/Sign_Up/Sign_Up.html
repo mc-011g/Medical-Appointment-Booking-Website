@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Sign_Up.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="signup-container">
+            <h1>Sign Up</h1>
+        
+            <form class="signup-form">   
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <select class="form-control" name="role" id="role2" placeholder="Select role" required>
+                        <option value="Role 1">Role 1</option>
+                        <option value="Role 2">Role 2</option>
+                        <option value="Role 3">Role 3</option>
+                        <option value="Role 4">Role 4</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Enter your first name" required/>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Enter your last name" required/>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" required/>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" class="form-control" name="phone" id="phone" placeholder="Enter your phone number"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password"/>
+                </div>
+                
+                <div class="signup-btns">
+                    <button type="submit" class="create-account-btn">Create Account</button>    
+                    
+                    <a href="../Login/Login.html">
+                        <button type="button" class="login-btn">
+                            Login
+                        </button>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

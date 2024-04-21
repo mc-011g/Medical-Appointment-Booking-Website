@@ -1,0 +1,67 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.signup-container {
+    width: 300px;
+    height: 700px;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;   
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control {
+    border-radius: 5px;
+    padding: 7px;
+    margin-top: 5px;
+    border-color: #B3B3B3;
+    border-width: 1px;
+}
+
+.form-group label {
+   font-weight: bold;
+}
+
+.create-account-btn {
+    background-color: #5685FF;
+    color: white;
+    height: 40px;
+    border-width: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-btn {
+    background-color: white;
+    color: #5685FF;
+    border-radius: 5px;
+    border-color: #5685FF;
+    height: 40px;
+    border-width: 1px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.signup-container h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.signup-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.signup-form select {
+    background-color: white;
+}
