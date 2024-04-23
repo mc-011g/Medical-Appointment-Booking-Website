@@ -9,7 +9,7 @@ const Navbar = () => {
 
     const handleLogout = () => {
         sessionStorage.removeItem("auth-token");
-        sessionStorage.removeItem("firstName");
+        sessionStorage.removeItem("name");
         sessionStorage.removeItem("lastName");
         sessionStorage.removeItem("email");
         sessionStorage.removeItem("phone");
@@ -33,7 +33,7 @@ const Navbar = () => {
 
         if (storedEmail) {
             setIsLoggedIn(true);
-            setUsername(storedEmail);
+            setUsername(storedEmail.split('@')[0]);
         }
     }, []);
 
@@ -56,11 +56,12 @@ const Navbar = () => {
                     </button>
                 </Link>
 
-                Welcome, {username}
-
                 {isLoggedIn ? (
                     <>
-                        <button className="nav-btn" onClick={handleLogout}>
+                        <div className="username">
+                            Welcome, {username}
+                        </div>
+                        <button className="large-btn" onClick={handleLogout}>
                             Logout
                         </button>
                     </>

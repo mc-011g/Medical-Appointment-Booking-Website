@@ -6,7 +6,7 @@ nav {
     position: sticky;  
     padding-right: 30px;
     margin-top: 20px;
-    background-color: #fff;
+    background-color: #fff;   
 }
 
 .nav-btns {
@@ -46,8 +46,7 @@ nav {
 /* Navbar Logo */
 .nav-logo {    
     width: 300px;
-    height: 80px;  
-    font-family: 'Inter';
+    height: 80px;   
     font-style: normal;
     font-weight: 800;
     font-size: 40px;
@@ -61,6 +60,13 @@ nav {
 a {
     text-decoration: none;
     color: black;
+}
+
+.username {
+    margin-top: 10px;
+    font-size: 20px;
+    align-content: center;
+    margin-left: 100px;
 }
 
 
