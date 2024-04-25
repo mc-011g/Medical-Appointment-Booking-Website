@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './InstantConsultation.css';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import FindDoctorSearchIC from './FindDoctorSearchIC/FindDoctorSearchIC';
+import FindDoctorSearch from '../FindDoctorSearch/FindDoctorSearch';
+
 import DoctorCardIC from './DoctorCardIC/DoctorCardIC';
 
 const InstantConsultation = () => {
@@ -61,7 +62,7 @@ const InstantConsultation = () => {
     return (
         <center>
             <div className="searchpage-container">
-                <FindDoctorSearchIC onSearch={handleSearch} />
+                <FindDoctorSearch onSearch={handleSearch} />
                 <div className="search-results-container">
                     {isSearched ? (
                         <center>
@@ -77,6 +78,8 @@ const InstantConsultation = () => {
                         ''
                     )}
                 </div>
+
+                Icons by <a target="_blank" href="https://icons8.com">Icons8</a>
             </div>
         </center>
     )
