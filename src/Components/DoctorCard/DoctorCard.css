@@ -1,0 +1,14 @@
+.doctor-card {
+    width: 250px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;   
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.doctor-card-info {
+    padding-left: 15px;
+    padding-right: 15px;
+}
