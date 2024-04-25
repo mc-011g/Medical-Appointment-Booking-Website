@@ -55,6 +55,11 @@ const Navbar = () => {
                         Appointments
                     </button>
                 </Link>
+                <Link to="/instant-consultation">
+                    <button className="nav-btn">
+                        Instant Consultation
+                    </button>
+                </Link>
 
                 {isLoggedIn ? (
                     <>
