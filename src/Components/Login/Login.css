@@ -1,6 +1,7 @@
 .container {
     display: flex;
     justify-content: center;
+    margin-top: 5%;
 }
 
 .login-container {
@@ -38,6 +39,11 @@
     border-width: 1px;
     border-radius: 5px;
     cursor: pointer;
+    border-style: solid;
+}
+
+.login-btn:hover {
+    color: white;    
 }
 
 .create-account-btn {

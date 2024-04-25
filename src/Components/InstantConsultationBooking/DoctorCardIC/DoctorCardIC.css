@@ -62,7 +62,7 @@
   }
   
   .book-appoinment-btn {
-    background-color: #3498db;
+    background-color: #5685FF;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -107,7 +107,7 @@
 .modal-btn {
   display: inline-block;
   padding: 8px 16px;
-  background-color: #2196f3;
+  background-color: #5685FF;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -150,8 +150,8 @@
   overflow-y: auto; */
 }
 
-.form-group {
-  margin-bottom: 20px;
+.appointment-form div {
+    margin-bottom: 20px;
 }
 
 label {
@@ -171,7 +171,7 @@ textarea {
 
 button {
   padding: 12px 20px;
-  background-color: #007bff;
+  background-color: #5685FF;
   color: #fff;
   border: none;
   border-radius: 4px;
