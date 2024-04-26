@@ -1,0 +1,15 @@
+.book-appointment-container {
+    background-color: white;
+    width: 600px;
+    padding: 30px;
+}
+
+.book-appointment-button {
+    border-radius: 5px;
+}
+
+.book-appointment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
