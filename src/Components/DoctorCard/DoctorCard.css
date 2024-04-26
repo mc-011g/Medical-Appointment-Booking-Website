@@ -39,3 +39,8 @@
 .popup-overlay {
     background: rgba(0, 0, 0, 0.5);
 }
+
+.cancel-appointment-button {
+    background-color: red;
+    border-color: red;
+}

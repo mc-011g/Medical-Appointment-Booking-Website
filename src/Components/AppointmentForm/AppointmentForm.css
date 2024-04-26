@@ -4,7 +4,13 @@
     padding: 30px;
 }
 
-.book-appointment-button {
+.book-appointment-form .book-appointment-button {
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.bookedInfo .book-appointment-button {
+    margin-top: 15px;
     border-radius: 5px;
 }
 
@@ -13,3 +19,26 @@
     flex-direction: column;
     gap: 15px;
 }
+
+.book-appointment-form select {
+    background-color: white;
+}
+
+.appointment-booked {
+    background-color: white;
+    border-radius: 5px;    
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.closeButton {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+

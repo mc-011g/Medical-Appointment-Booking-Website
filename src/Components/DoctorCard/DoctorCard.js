@@ -4,6 +4,7 @@ import "./DoctorCard.css";
 import Popup from 'reactjs-popup';
 import { v4 as uuidv4 } from 'uuid';
 import AppointmentForm from "../AppointmentForm/AppointmentForm";
+import xIcon from "../AppointmentForm/images/icons8-x-48.png";
 
 const DoctorCard = ({ name, speciality, experience, ratings }) => {
     const [showModal, setShowModal] = useState(false);
@@ -36,8 +37,12 @@ const DoctorCard = ({ name, speciality, experience, ratings }) => {
             </div>
 
             <Popup trigger={
-                <button className="book-appointment-button">
-                    Book appointment
+                <button className={`book-appointment-button ${appointments.length > 0 ? 'cancel-appointment-button' : ''}`}>
+                    {appointments.length > 0 ? (
+                        <div>Cancel appointment</div>
+                    ) : (
+                        <div>Book appointment</div>
+                    )}
                 </button>
             }
                 modal
@@ -47,18 +52,19 @@ const DoctorCard = ({ name, speciality, experience, ratings }) => {
                 {(close) => (
                     <>
                         {appointments.length > 0 ? (
-                            <>
+                            <div className="appointment-booked">
+                                <img src={xIcon} className="closeButton" onClick={close} />
                                 <h3>Appointment Booked</h3>
                                 {appointments.map((appointment) => (
                                     <div className="bookedInfo" key={appointment.id}>
                                         <p>Name: {appointment.name}</p>
                                         <p>Phone Number: {appointment.phoneNumber}</p>
-                                        <button onClick={() => handleCancel(appointment.id)}>Cancel Appointment</button>
+                                        <button className="book-appointment-button cancel-appointment-button" onClick={() => handleCancel(appointment.id)}>Cancel Appointment</button>
                                     </div>
                                 ))}
-                            </>
+                            </div>
                         ) : (
-                            <AppointmentForm doctorName={name} doctorSpecialty={speciality} doctorExperience={experience} doctorRatings={ratings} doctorImage={doctorImage} onSubmit={handleFormSubmit} />
+                            <AppointmentForm doctorName={name} doctorSpecialty={speciality} doctorExperience={experience} doctorRatings={ratings} doctorImage={doctorImage} onSubmit={handleFormSubmit} closeModal={close} xIcon={xIcon} />
                         )}
                     </>
                 )}
