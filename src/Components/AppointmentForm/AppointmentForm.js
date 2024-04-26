@@ -36,17 +36,15 @@ const AppointmentForm = ({ doctorName, doctorSpecialty, doctorRatings, doctorExp
                     Appointment date:
                     <input type="date" className="form-control" ame="date" id="date" required />
                 </label>
-
                 <label>
                     Appointment time slot:
-                    <select className="form-control" name="role" id="role2" placeholder="Select role" required>
-                        <option value="Role 1">8:00AM - 8:30AM</option>
-                        <option value="Role 2">8:30AM - 9:00AM</option>
-                        <option value="Role 3">9:30AM - 10:00AM</option>
-                        <option value="Role 4">10:00AM - 10:30AM</option>
+                    <select className="form-control" name="timeSlot" id="timeSlot" placeholder="Select role" required>
+                        <option value="8:00AM - 8:30AM">8:00AM - 8:30AM</option>
+                        <option value="8:30AM - 9:00AM">8:30AM - 9:00AM</option>
+                        <option value="9:30AM - 10:00AM">9:30AM - 10:00AM</option>
+                        <option value="10:00AM - 10:30AM">10:00AM - 10:30AM</option>
                     </select>
                 </label>
-
                 <button type="submit" className="book-appointment-button">
                     Book Appointment
                 </button>
