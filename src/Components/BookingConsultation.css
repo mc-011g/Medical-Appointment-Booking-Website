@@ -1,0 +1,10 @@
+.container {
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+    flex-direction: column;
+}
+
+.search-results-container {
+    text-align: center;
+}

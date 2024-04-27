@@ -55,9 +55,9 @@ const Navbar = () => {
                         Appointments
                     </button>
                 </Link>
-                <Link to="/instant-consultation">
+                <Link to="/booking-consultation">
                     <button className="nav-btn">
-                        Instant Consultation
+                        Booking Consultation
                     </button>
                 </Link>
 

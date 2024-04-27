@@ -18,12 +18,12 @@ const FindDoctorSearch = () => {
     const handleDoctorSelect = (speciality) => {
         setSearchDoctor(speciality);
         setDoctorResultHidden(true);
-        navigate(`/instant-consultation?speciality=${speciality}`);
+        navigate(`/booking-consultation?speciality=${speciality}`);
         window.location.reload();
     }
 
     return (
-        <div className="container">
+        <div className="search-doctor-container">
             <h1>Find a doctor</h1>
 
             <div style={{ marginBottom: "15px" }}>
