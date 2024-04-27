@@ -1,0 +1,7 @@
+.notification-container {
+    border-radius: 5px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

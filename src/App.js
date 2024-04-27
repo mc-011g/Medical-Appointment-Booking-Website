@@ -5,12 +5,14 @@ import Login from "./Components/Login/Login";
 import Sign_Up from "./Components/Sign_Up/Sign_Up";
 import InstantConsultation from "./Components/InstantConsultationBooking/InstantConsultation";
 import BookingConsultation from "./Components/BookingConsultation";
+import Notification from "./Components/Notification/Notification";
 
 function App() {
   return (
     <>    
         <BrowserRouter>
             <Navbar/>
+            <Notification/>
                 <Routes>       
                     <Route path="/" element={<Layout/>}/>  
                     <Route path="/login" element={<Login/>}/>
