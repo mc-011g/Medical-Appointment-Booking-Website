@@ -8,20 +8,20 @@ import BookingConsultation from "./Components/BookingConsultation";
 import Notification from "./Components/Notification/Notification";
 
 function App() {
-  return (
-    <>    
-        <BrowserRouter>
-            <Navbar/>
-            <Notification/>
-                <Routes>       
-                    <Route path="/" element={<Layout/>}/>  
-                    <Route path="/login" element={<Login/>}/>
-                    <Route path="/signup" element={<Sign_Up/>}/>      
-                    <Route path="/booking-consultation" element={<BookingConsultation />} />          
-                </Routes>
-        </BrowserRouter>       
-    </>
-  );
+    return (
+        <>
+            <BrowserRouter>
+                <Notification>
+                    <Routes>
+                        <Route path="/" element={<Layout />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/signup" element={<Sign_Up />} />
+                        <Route path="/booking-consultation" element={<BookingConsultation />} />
+                    </Routes>
+                </Notification>
+            </BrowserRouter>
+        </>
+    );
 }
 
 export default App;

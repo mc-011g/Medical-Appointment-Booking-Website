@@ -1,42 +1,55 @@
 import React, { useEffect, useState } from 'react';
+import "./Notification.css";
+import Navbar from '../Navbar/Navbar';
 
 const Notification = ({ children }) => {
     const [displayNotification, setDisplayNotification] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [username, setUsername] = useState("");
-    const [doctorData, setDoctorData] = useState(null);
-    const [appointmentData, setAppointmentData] = useState(null);
+    const [appointmentData, setAppointmentData] = useState([]);
 
     useEffect(() => {
-        const storedUsername = sessionStorage.getItem('email');
-        const storedDoctorData = JSON.parse(localStorage.getItem('doctorData'));
-        const storedAppointmentData = JSON.parse(localStorage.getItem(storedDoctorData?.name));
+        const appointmentChange = () => {
+            const storedAppointmentData = JSON.parse(localStorage.getItem('appointmentData'));
+            const storedUsername = sessionStorage.getItem('email');
+            if (storedAppointmentData) {
+                setAppointmentData(storedAppointmentData);
+                if (storedUsername) {
+                    setUsername(storedUsername);
+                }
+                if (storedUsername && storedAppointmentData) {
+                    setDisplayNotification(true);
+                }
+            }
+        }
 
-        if (storedUsername) {
-            setIsLoggedIn(true);
-            setUsername(storedUsername);
-        }
-        if (storedDoctorData) {
-            setDoctorData(storedDoctorData);
-        }
+        const storedAppointmentData = JSON.parse(localStorage.getItem('appointmentData'));
+        const storedUsername = sessionStorage.getItem('email');
         if (storedAppointmentData) {
             setAppointmentData(storedAppointmentData);
         }
-        if (isLoggedIn && doctorData) {
+        if (storedUsername) {
+            setUsername(storedUsername);
+        }
+        if (storedUsername && storedAppointmentData) {
             setDisplayNotification(true);
         }
+
+        window.addEventListener("storage", appointmentChange)
+        return () => window.removeEventListener("storage", appointmentChange)
     }, [])
 
     return (
         <>
+            <Navbar></Navbar>
+            {children}
             {displayNotification ? (
                 <div className="notification-container">
                     <h3>Appointment Details</h3>
-                    <div>Doctor: {doctorData.name}</div>
-                    <div>Doctor speciality: {doctorData.speciality}</div>
-                    <div>Patient name: {username}</div>
-                    <div>Time slot: {appointmentData.timeSlot}</div>
-                    <div>Appointment date: {appointmentData.appointmentDate}</div>
+                    <div>Doctor: {appointmentData[0]?.doctorName}</div>
+                    <div>Doctor speciality: {appointmentData[0]?.doctorSpecialty}</div>
+                    <div>Patient name: {appointmentData[0]?.name}</div>
+                    <div>Time slot: {appointmentData[0]?.timeSlot}</div>
+                    <div>Appointment date: {appointmentData[0]?.appointmentDate}</div>
                 </div>
             ) : (
                 <></>

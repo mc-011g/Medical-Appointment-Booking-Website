@@ -4,12 +4,16 @@ import './AppointmentForm.css'
 const AppointmentForm = ({ doctorName, doctorSpecialty, doctorRatings, doctorExperience, doctorImage, onSubmit, closeModal, xIcon }) => {
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
+    const [appointmentDate, setAppointmentDate] = useState('');
+    const [timeSlot, setTimeSlot] = useState('');
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        onSubmit({ name, phoneNumber });
-        setName('');
-        setPhoneNumber('');
+        onSubmit({
+            name, phoneNumber,
+            doctorName, doctorSpecialty,
+            appointmentDate, timeSlot
+        });
     };
 
     return (
@@ -34,15 +38,15 @@ const AppointmentForm = ({ doctorName, doctorSpecialty, doctorRatings, doctorExp
                 </label>
                 <label>
                     Appointment date:
-                    <input type="date" className="form-control" ame="date" id="date" required />
+                    <input type="date" onChange={(e) => setAppointmentDate(e.target.value)} className="form-control" name="appointmentDate" id="appointmentDate" required />
                 </label>
                 <label>
                     Appointment time slot:
-                    <select className="form-control" name="timeSlot" id="timeSlot" required>
-                        <option value="8:00AM - 8:30AM">8:00AM - 8:30AM</option>
-                        <option value="8:30AM - 9:00AM">8:30AM - 9:00AM</option>
-                        <option value="9:30AM - 10:00AM">9:30AM - 10:00AM</option>
-                        <option value="10:00AM - 10:30AM">10:00AM - 10:30AM</option>
+                    <select value={timeSlot} className="form-control" name="timeSlot" id="timeSlot" onChange={(e) => setTimeSlot(e.target.value)} required>
+                        <option value="8:00AM">8:00AM</option>
+                        <option value="8:30AM">8:30AM</option>
+                        <option value="9:00AM">9:00AM</option>
+                        <option value="9:30AM">9:30AM</option>
                     </select>
                 </label>
                 <button type="submit" className="book-appointment-button">

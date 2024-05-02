@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import doctorImage from "../FindDoctorSearch/images/icons8-doctor-100.png";
 import "./DoctorCard.css";
 import Popup from 'reactjs-popup';
@@ -23,10 +23,14 @@ const DoctorCard = ({ name, speciality, experience, ratings }) => {
         const updatedAppointments = [...appointments, newAppointment];
         setAppointments(updatedAppointments);
         setShowModal(false);
-    
-        localStorage.setItem("doctorData", JSON.stringify(appointmentData));    
     };
 
+    useEffect(() => {
+        if (appointments.length > 0) {
+            localStorage.setItem("appointmentData", JSON.stringify(appointments));
+            window.dispatchEvent(new Event("storage"));
+        }
+    }, [appointments]);
 
     return (
         <div className="doctor-card">
