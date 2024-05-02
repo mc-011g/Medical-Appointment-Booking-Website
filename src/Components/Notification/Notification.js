@@ -19,6 +19,9 @@ const Notification = ({ children }) => {
                 if (storedUsername && storedAppointmentData) {
                     setDisplayNotification(true);
                 }
+            } else if (!storedAppointmentData) {
+                setAppointmentData([]);
+                setDisplayNotification(false);
             }
         }
 

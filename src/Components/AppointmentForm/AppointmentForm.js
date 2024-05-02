@@ -30,7 +30,7 @@ const AppointmentForm = ({ doctorName, doctorSpecialty, doctorRatings, doctorExp
             <form onSubmit={handleFormSubmit} className="book-appointment-form">
                 <label>
                     Patient name:
-                    <input type="text" className="form-control" onChange={(e) => setName(e.target.value)} name="name" id="id" placeholder="Patient Name" required />
+                    <input type="text" className="form-control" onChange={(e) => setName(e.target.value)} name="name" id="name" placeholder="Patient Name" required />
                 </label>
                 <label>
                     Phone number:

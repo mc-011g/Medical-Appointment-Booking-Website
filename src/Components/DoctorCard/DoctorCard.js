@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import doctorImage from "../FindDoctorSearch/images/icons8-doctor-100.png";
 import "./DoctorCard.css";
 import Popup from 'reactjs-popup';
@@ -9,10 +9,13 @@ import xIcon from "../AppointmentForm/images/icons8-x-48.png";
 const DoctorCard = ({ name, speciality, experience, ratings }) => {
     const [showModal, setShowModal] = useState(false);
     const [appointments, setAppointments] = useState([]);
+    const prevAppoinment = useRef(appointments);
+    const [cancelAppointment, setCancelAppointment] = useState(false);
 
     const handleCancel = (appointmentId) => {
         const updatedAppointments = appointments.filter((appointment) => appointment.id !== appointmentId);
         setAppointments(updatedAppointments);
+        setCancelAppointment(true);
     };
 
     const handleFormSubmit = (appointmentData) => {
@@ -26,7 +29,18 @@ const DoctorCard = ({ name, speciality, experience, ratings }) => {
     };
 
     useEffect(() => {
-        if (appointments.length > 0) {
+        const storedAppointmentData = JSON.parse(localStorage.getItem("appointmentData"));
+        if (storedAppointmentData) {
+            setAppointments(storedAppointmentData);
+        }
+    }, [])
+
+    useEffect(() => {
+        if (((cancelAppointment == true) && (localStorage.getItem("appointmentData")))) {
+            localStorage.removeItem("appointmentData");
+            window.dispatchEvent(new Event("storage"));
+        }
+        if ((appointments.length > 0) && (!(JSON.parse(localStorage.getItem("appointmentData"))))) {
             localStorage.setItem("appointmentData", JSON.stringify(appointments));
             window.dispatchEvent(new Event("storage"));
         }
@@ -43,8 +57,8 @@ const DoctorCard = ({ name, speciality, experience, ratings }) => {
             </div>
 
             <Popup trigger={
-                <button className={`book-appointment-button ${appointments.length > 0 ? 'cancel-appointment-button' : ''}`}>
-                    {appointments.length > 0 ? (
+                <button className={`book-appointment-button ${((appointments.length > 0) && (name == appointments[0].doctorName)) ? 'cancel-appointment-button' : ''}`}>
+                    {((appointments.length > 0) && (name == appointments[0].doctorName)) ? (
                         <div>Cancel appointment</div>
                     ) : (
                         <div>Book appointment</div>
@@ -57,7 +71,7 @@ const DoctorCard = ({ name, speciality, experience, ratings }) => {
             >
                 {(close) => (
                     <>
-                        {appointments.length > 0 ? (
+                        {(appointments.length > 0) ? (
                             <div className="appointment-booked">
                                 <img src={xIcon} className="closeButton" onClick={close} />
                                 <h3>Appointment Booked</h3>
