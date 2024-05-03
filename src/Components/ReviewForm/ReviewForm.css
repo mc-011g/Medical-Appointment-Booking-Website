@@ -1,0 +1,25 @@
+.container h1 {
+    text-align: left;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    background-color: rgb(219, 219, 219);
+}
+
+.feedback-button {
+    padding: 0px;
+    margin-top: 0px;
+    color: white;
+    background-color: #5685FF;
+    border: 1px solid;
+}
+
+td,
+th {
+    padding: 15px;
+}

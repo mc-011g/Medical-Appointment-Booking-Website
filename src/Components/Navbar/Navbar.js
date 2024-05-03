@@ -60,6 +60,11 @@ const Navbar = () => {
                         Booking Consultation
                     </button>
                 </Link>
+                <Link to="/reviews">
+                    <button className="nav-btn">
+                        Reviews
+                    </button>
+                </Link>
 
                 {isLoggedIn ? (
                     <>
