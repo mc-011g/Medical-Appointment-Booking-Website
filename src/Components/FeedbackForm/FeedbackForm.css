@@ -1,0 +1,39 @@
+.feedbackContainer {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 500px;
+}
+
+.feedbackContainer form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.feedbackContainer .feedback-button {
+    padding: 15px;
+}
+
+.feedbackContainer label {
+    display: grid;
+}
+
+.feedbackContainer h3 {
+    text-align: center;
+}
+
+.starRatings {
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+}
+
+.star:hover,
+.starSelected {
+    cursor: pointer;
+}
+
+.starSelected {
+    background-color: yellow;
+}

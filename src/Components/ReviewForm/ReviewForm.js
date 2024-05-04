@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./ReviewForm.css";
+import Popup from 'reactjs-popup';
+import FeedbackForm from '../FeedbackForm/FeedbackForm';
 
 const ReviewForm = () => {
+    const [showModal, setShowModal] = useState(false);
+    const [reviewText, setReviewText] = useState('');
+    const [enableFeedbackButton, setEnableFeedbackButton] = useState(true);
+
+    const handleFormSubmit = (reviewInfo) => {
+        setReviewText((JSON.parse(JSON.stringify(reviewInfo))).reviewText);
+        setEnableFeedbackButton(false);
+    }
 
     return (
         <div className="container">
@@ -25,12 +35,24 @@ const ReviewForm = () => {
                         Doctor Specialty
                     </td>
                     <td>
-                        <button type="button" className="feedback-button" name="feedbackButton" id="feedbackButton">
-                            Click Here
-                        </button>
+                        <>
+                            <Popup trigger={
+                                <button type="button" className="feedback-button" name="feedbackButton" id="feedbackButton" disabled={!enableFeedbackButton}>
+                                    Click Here
+                                </button>
+                            }
+                                modal
+                                open={showModal}
+                                onClose={() => setShowModal(false)}
+                            >
+                                {(close) => (
+                                    <FeedbackForm closeModal={close} onSubmit={handleFormSubmit} />
+                                )}
+                            </Popup>
+                        </>
                     </td>
-                    <td>
-
+                    <td className="reviewText">
+                        {reviewText}
                     </td>
                 </tr>
             </table>

@@ -8,7 +8,7 @@ const AppointmentForm = ({ doctorName, doctorSpecialty, doctorRatings, doctorExp
     const [timeSlot, setTimeSlot] = useState('');
 
     const handleFormSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault();            
         onSubmit({
             name, phoneNumber,
             doctorName, doctorSpecialty,

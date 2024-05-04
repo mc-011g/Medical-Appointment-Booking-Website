@@ -23,3 +23,8 @@ td,
 th {
     padding: 15px;
 }
+
+.feedback-button:disabled {
+    background-color: lightgrey;
+    cursor: default;
+}
