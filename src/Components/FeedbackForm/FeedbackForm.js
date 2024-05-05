@@ -4,7 +4,7 @@ import xIcon from "../AppointmentForm/images/icons8-x-48.png";
 import starIcon from './images/star-svgrepo-com.svg';
 import starIconYellow from './images/star-svgrepo-com2.svg';
 
-const FeedbackForm = ({ closeModal, onSubmit }) => {
+const FeedbackForm = ({ closeModal, onSubmit, currentAppointment, currentAppointmentIndex }) => {
     const [name, setName] = useState('');
     const [reviewText, setReviewText] = useState('');
     const [rating, setRating] = useState(0);
@@ -13,7 +13,7 @@ const FeedbackForm = ({ closeModal, onSubmit }) => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         onSubmit({
-            reviewText
+            reviewText, currentAppointment, currentAppointmentIndex, rating, name
         });
     };
 
