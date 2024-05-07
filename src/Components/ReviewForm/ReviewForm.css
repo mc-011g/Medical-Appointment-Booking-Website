@@ -1,14 +1,16 @@
 .container h1 {
-    text-align: left;
+    text-align: center;
     width: 100%;
 }
 
 table {
-    width: 100%;
+    width: 85%;
+    border-spacing: 0px;
 }
 
 th {
     background-color: rgb(219, 219, 219);
+    text-align: left;
 }
 
 .feedback-button {
@@ -21,7 +23,8 @@ th {
 
 td,
 th {
-    padding: 15px;
+    padding: 20px;
+    border-bottom: 1px solid rgb(153, 153, 153);;
 }
 
 .feedback-button:disabled {
