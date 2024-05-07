@@ -7,6 +7,16 @@ const Notification = ({ children }) => {
     const [username, setUsername] = useState("");
     const [appointmentData, setAppointmentData] = useState([]);
 
+    const getEarliestAppointment = () => {
+        const appointmentDates = appointmentData.map((appointment) => appointment.appointmentDate);
+
+        const earliestDate = appointmentDates.reduce((previous, current) => {
+            return previous > current ? current : previous;
+        });
+
+        return earliestDate;
+    }
+
     useEffect(() => {
         const appointmentChange = () => {
             const storedAppointmentData = JSON.parse(localStorage.getItem('appointmentData'));
@@ -16,7 +26,7 @@ const Notification = ({ children }) => {
                 if (storedUsername) {
                     setUsername(storedUsername);
                 }
-                if (storedUsername && storedAppointmentData) {
+                if (storedAppointmentData && storedUsername) {
                     setDisplayNotification(true);
                 }
             } else if (!storedAppointmentData) {
@@ -46,14 +56,24 @@ const Notification = ({ children }) => {
             <Navbar></Navbar>
             {children}
             {displayNotification ? (
-                <div className="notification-container">
-                    <h3>Appointment Details</h3>
-                    <div>Doctor: {appointmentData[0]?.doctorName}</div>
-                    <div>Doctor speciality: {appointmentData[0]?.doctorSpecialty}</div>
-                    <div>Patient name: {appointmentData[0]?.name}</div>
-                    <div>Time slot: {appointmentData[0]?.timeSlot}</div>
-                    <div>Appointment date: {appointmentData[0]?.appointmentDate}</div>
-                </div>
+                <>
+                    {appointmentData.map((appointment) => (
+                        <>
+                            {(appointment.appointmentDate === getEarliestAppointment()) ? (
+                                <div className="notification-container">
+                                    <h3>Appointment Details</h3>
+                                    <div>Doctor: {appointment?.doctorName}</div>
+                                    <div>Doctor speciality: {appointment?.doctorSpecialty}</div>
+                                    <div>Patient name: {appointment?.name}</div>
+                                    <div>Time slot: {appointment?.timeSlot}</div>
+                                    <div>Appointment date: {appointment?.appointmentDate}</div>
+                                </div >
+                            ) : (
+                                <></>
+                            )}
+                        </>
+                    ))}
+                </>
             ) : (
                 <></>
             )}
