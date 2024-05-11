@@ -1,7 +1,7 @@
 .container {
     display: flex;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 10%;
 }
 
 .login-container {
@@ -12,7 +12,7 @@
 .login-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;   
+    gap: 20px;
 }
 
 .form-group {
@@ -29,7 +29,7 @@
 }
 
 .form-group label {
-   font-weight: bold;
+    font-weight: bold;
 }
 
 .login-btn {
@@ -43,7 +43,7 @@
 }
 
 .login-btn:hover {
-    color: white;    
+    color: white;
 }
 
 .create-account-btn {

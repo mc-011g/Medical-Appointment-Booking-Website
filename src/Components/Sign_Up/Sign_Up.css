@@ -1,7 +1,7 @@
 .container {
     display: flex;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 120px;
 }
 
 .signup-container {
@@ -12,7 +12,7 @@
 .signup-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;   
+    gap: 20px;
 }
 
 .form-group {
@@ -30,7 +30,7 @@
 }
 
 .form-group label {
-   font-weight: bold;
+    font-weight: bold;
 }
 
 .create-account-btn {

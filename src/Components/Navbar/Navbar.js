@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
+import navIcon from './images/nav-icon-a-svgrepo-com.svg';
 
 const Navbar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
+    const [showUserDropdown, setShowUserDropdown] = useState(false);
+    const [navDropdown, setNavDropdown] = useState(true);
 
     const handleLogout = () => {
         sessionStorage.removeItem("auth-token");
@@ -28,23 +31,49 @@ const Navbar = () => {
         window.location.reload();
     }
 
+    const handleUserDropdown = () => {
+        if (showUserDropdown === true) {
+            setShowUserDropdown(false);
+        } else {
+            setShowUserDropdown(true);
+        }
+    }
+
     useEffect(() => {
+        setNavDropdown(false);
         const storedEmail = sessionStorage.getItem("email");
 
         if (storedEmail) {
             setIsLoggedIn(true);
             setUsername(storedEmail.split('@')[0]);
         }
+
     }, []);
+
+    const handleNavDropdown = () => {
+        if (navDropdown === false) {
+            setNavDropdown(true);
+        } else {
+            setNavDropdown(false);
+        }
+    }
 
     return (
         <nav>
-            <Link to="/">
-                <div className="nav-logo">
-                    StayHealthy
+            <div className="nav-top">
+                <Link to="/">
+                    <div className="nav-logo">
+                        <Link to="/">
+                            StayHealthy
+                        </Link>
+                    </div>
+                </Link>
+                <div className="icon" onClick={handleNavDropdown}>
+                    <img src={navIcon} className="navIcon" alt="" />
                 </div>
-            </Link>
-            <div className="nav-btns">
+            </div>
+
+            <div className={`nav-btns ${navDropdown && 'nav-btns-column'}`} onClick={handleNavDropdown}>
                 <Link to="/">
                     <button className="nav-btn">
                         Home
@@ -68,21 +97,40 @@ const Navbar = () => {
 
                 {isLoggedIn ? (
                     <>
-                        <div className="username">
-                            Welcome, {username}
+                        <div className="user-btn">
+                            <div className="username" onClick={handleUserDropdown}>
+                                Welcome, {username}
+                            </div>
+
+                            {showUserDropdown &&
+                                <div className="userDropdown">
+                                    <Link to="/profile">
+                                        <div>
+                                            Your Profile
+                                        </div>
+                                    </Link>
+
+                                    <Link to="/reports">
+                                        <div>
+                                            Your Reports
+                                        </div>
+                                    </Link>
+                                </div>
+                            }
                         </div>
+
                         <button className="large-btn" onClick={handleLogout}>
                             Logout
                         </button>
                     </>
                 ) : (
                     <>
-                        <Link to="/signup">
+                        <Link to="/signup" style={{ width: "fit-content" }}>
                             <button className="large-btn">
                                 Sign Up
                             </button>
                         </Link>
-                        <Link to="/login">
+                        <Link to="/login" style={{ width: "fit-content" }}>
                             <button className="large-btn">
                                 Login
                             </button>

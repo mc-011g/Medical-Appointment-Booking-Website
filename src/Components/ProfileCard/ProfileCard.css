@@ -1,0 +1,14 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 30px;
+    width: 400px;
+    height: 700px;
+}
+
+.btn {
+    border-width: 1px;
+    background-color: #5685FF;
+    color: white;
+}
