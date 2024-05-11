@@ -73,23 +73,23 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <div className={`nav-btns ${navDropdown && 'nav-btns-column'}`} onClick={handleNavDropdown}>
-                <Link to="/">
-                    <button className="nav-btn">
+            <div className={`nav-btns ${navDropdown && 'nav-btns-column'}`}>
+                <Link to="/" className="nav-link">
+                    <button className="nav-btn" onClick={handleNavDropdown}>
                         Home
                     </button>
                 </Link>
-                <Link to="/">
-                    <button className="nav-btn">
+                <Link to="/" className="nav-link">
+                    <button className="nav-btn" onClick={handleNavDropdown}>
                         Appointments
                     </button>
                 </Link>
-                <Link to="/booking-consultation">
-                    <button className="nav-btn">
+                <Link to="/booking-consultation" className="nav-link">
+                    <button className="nav-btn" onClick={handleNavDropdown}>
                         Booking Consultation
                     </button>
                 </Link>
-                <Link to="/reviews">
+                <Link to="/reviews" className="nav-link" onClick={handleNavDropdown}>
                     <button className="nav-btn">
                         Reviews
                     </button>
@@ -105,13 +105,13 @@ const Navbar = () => {
                             {showUserDropdown &&
                                 <div className="userDropdown">
                                     <Link to="/profile">
-                                        <div>
+                                        <div onClick={() => { handleUserDropdown(); handleNavDropdown() }}>
                                             Your Profile
                                         </div>
                                     </Link>
 
                                     <Link to="/reports">
-                                        <div>
+                                        <div onClick={() => { handleUserDropdown(); handleNavDropdown() }}>
                                             Your Reports
                                         </div>
                                     </Link>
