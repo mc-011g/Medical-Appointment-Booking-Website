@@ -95,11 +95,9 @@ const ProfileCard = () => {
         }
     };
 
-
     return (
         <div className="container">
             <div className="profile-container">
-
                 {!editMode ? (
                     <>
                         <h1>Hello, {userDetails.name}</h1>
@@ -113,18 +111,17 @@ const ProfileCard = () => {
                 ) : (
                     <form onSubmit={handleSubmit}>
                         <label>
-                            <b>Email</b>
+                            <b>Email:</b>
                             <input type="text" className="form-control" name="email" id="email" value={userDetails.email} disabled />
                         </label>
                         <label>
-                            <b>Name</b>
+                            <b>Name:</b>
                             <input type="text" className="form-control" name="name" id="name" value={updatedDetails.name} onChange={handleInputChange} />
                         </label>
                         <label>
-                            <b>Phone</b>
+                            <b>Phone:</b>
                             <input type="text" className="form-control" name="phone" id="phone" value={updatedDetails.phone} onChange={handleInputChange} />
                         </label>
-
                         <button type="submit" className="btn save-btn" name="save-button" id="save-button">
                             Save
                         </button>

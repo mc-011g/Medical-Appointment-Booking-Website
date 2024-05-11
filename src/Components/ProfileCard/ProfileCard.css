@@ -12,3 +12,9 @@
     background-color: #5685FF;
     color: white;
 }
+
+.profile-container form {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
