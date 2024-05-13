@@ -62,7 +62,7 @@ const Navbar = () => {
         <nav>
             <div className="nav-top">
                 <Link to="/">
-                    <div className="nav-logo">
+                    <div className="nav-logo" onClick={handleNavDropdown}>
                         <Link to="/">
                             StayHealthy
                         </Link>
@@ -126,12 +126,12 @@ const Navbar = () => {
                 ) : (
                     <>
                         <Link to="/signup" style={{ width: "fit-content" }}>
-                            <button className="large-btn">
+                            <button className="large-btn" onClick={handleNavDropdown}>
                                 Sign Up
                             </button>
                         </Link>
                         <Link to="/login" style={{ width: "fit-content" }}>
-                            <button className="large-btn">
+                            <button className="large-btn" onClick={handleNavDropdown}>
                                 Login
                             </button>
                         </Link>
