@@ -38,14 +38,18 @@ const ReportsLayout = () => {
                                     {appointment.doctorSpecialty}
                                 </td>
                                 <td>
-                                    <button type="button" className="btn" name="feedbackButton" id="feedbackButton">
-                                        View Report
-                                    </button>
+                                    <a href={process.env.PUBLIC_URL + '/patient_report.pdf'} target="_blank" rel="noreferrer">
+                                        <button type="button" className="btn" name="feedbackButton" id="feedbackButton">
+                                            View Report
+                                        </button>
+                                    </a>
                                 </td>
                                 <td>
-                                    <button type="button" className="btn" id="downloadReport" name="downloadReport">
-                                        Download Report
-                                    </button>
+                                    <a href={process.env.PUBLIC_URL + 'patient_report.pdf'} download>
+                                        <button type="button" className="btn" id="downloadReport" name="downloadReport">
+                                            Download Report
+                                        </button>
+                                    </a>
                                 </td>
                             </tr>
                         ))
