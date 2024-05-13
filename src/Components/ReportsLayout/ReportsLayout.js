@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from "react";
 import './ReportsLayout.css';
+import { useNavigate } from "react-router-dom";
 
 const ReportsLayout = () => {
     const [appointments, setAppointments] = useState([]);
+
+    const navigate = useNavigate();
+    useEffect(() => {
+        const authtoken = sessionStorage.getItem("auth-token");
+        if (!authtoken) {
+            navigate("/login");
+        }
+    }, [navigate]);
 
     useEffect(() => {
         const storedAppointments = JSON.parse(localStorage.getItem("appointmentData"));

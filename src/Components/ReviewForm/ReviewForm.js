@@ -2,10 +2,19 @@ import React, { useEffect, useState } from 'react';
 import "./ReviewForm.css";
 import Popup from 'reactjs-popup';
 import FeedbackForm from '../FeedbackForm/FeedbackForm';
+import { useNavigate } from "react-router-dom";
 
 const ReviewForm = () => {
     const [showModal, setShowModal] = useState(false);
     const [appointments, setAppointments] = useState('');
+
+    const navigate = useNavigate();
+    useEffect(() => {
+        const authtoken = sessionStorage.getItem("auth-token");
+        if (!authtoken) {
+            navigate("/login");
+        }
+    }, [navigate]);
 
     const handleFormSubmit = (reviewInfo) => {
         const updatedAppointment = {

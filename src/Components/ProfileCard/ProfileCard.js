@@ -120,7 +120,7 @@ const ProfileCard = () => {
                         </label>
                         <label>
                             <b>Phone:</b>
-                            <input type="text" className="form-control" name="phone" id="phone" value={updatedDetails.phone} onChange={handleInputChange} />
+                            <input type="text" className="form-control" name="phone" id="phone" value={updatedDetails.phone} onChange={handleInputChange} maxLength={10} />
                         </label>
                         <button type="submit" className="btn save-btn" name="save-button" id="save-button">
                             Save

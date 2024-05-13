@@ -62,7 +62,7 @@ const Navbar = () => {
         <nav>
             <div className="nav-top">
                 <Link to="/">
-                    <div className="nav-logo" onClick={handleNavDropdown}>
+                    <div className="nav-logo" onClick={navDropdown ? handleNavDropdown : undefined}>
                         <Link to="/">
                             StayHealthy
                         </Link>
