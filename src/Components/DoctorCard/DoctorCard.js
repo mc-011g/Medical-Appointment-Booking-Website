@@ -1,51 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import doctorImage from "../FindDoctorSearch/images/icons8-doctor-100.png";
 import "./DoctorCard.css";
 import Popup from 'reactjs-popup';
-import { v4 as uuidv4 } from 'uuid';
 import AppointmentForm from "../AppointmentForm/AppointmentForm";
 import xIcon from "../AppointmentForm/images/icons8-x-48.png";
 
-const DoctorCard = ({ name, speciality, experience, ratings }) => {
-    const [showModal, setShowModal] = useState(false);
-    const [appointments, setAppointments] = useState([]);
-    const [cancelAppointment, setCancelAppointment] = useState(false);
-
-    const handleCancel = (appointmentId) => {
-        const updatedAppointments = appointments.filter((appointment) => appointment.id !== appointmentId);
-        setAppointments(updatedAppointments);
-        setCancelAppointment(true);
-    };
-
-    const handleFormSubmit = (appointmentData) => {
-        const newAppointment = {
-            id: uuidv4(),
-            ...appointmentData,
-        };
-        const updatedAppointments = [...appointments, newAppointment];
-
-        setAppointments(updatedAppointments);
-        setShowModal(false);
-    };
-
-    useEffect(() => {
-        const storedAppointmentData = JSON.parse(localStorage.getItem("appointmentData"));
-        if (storedAppointmentData) {
-            setAppointments(storedAppointmentData);
-        }
-    }, [])
-
-    useEffect(() => {
-        if (((cancelAppointment === true) && (localStorage.getItem("appointmentData")))) {
-            localStorage.removeItem("appointmentData");
-            window.dispatchEvent(new Event("storage"));
-        }
-        if ((appointments.length > 0)) {
-            localStorage.setItem("appointmentData", JSON.stringify(appointments));
-            window.dispatchEvent(new Event("storage"));
-        }
-
-    }, [appointments, cancelAppointment]);
+const DoctorCard = ({ name, speciality, experience, ratings, appointments, handleCancel, handleFormSubmit, handleModal }) => {
 
     return (
         <div className="doctor-card">
@@ -67,8 +27,8 @@ const DoctorCard = ({ name, speciality, experience, ratings }) => {
                 </button>
             }
                 modal
-                open={showModal}
-                onClose={() => setShowModal(false)}
+                open={handleModal}
+                onClose={handleModal}
             >
                 {(close) => (
                     <>

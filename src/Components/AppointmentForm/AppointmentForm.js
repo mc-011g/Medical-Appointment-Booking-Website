@@ -5,7 +5,7 @@ const AppointmentForm = ({ doctorName, doctorSpecialty, doctorRatings, doctorExp
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [appointmentDate, setAppointmentDate] = useState('');
-    const [timeSlot, setTimeSlot] = useState('');
+    const [timeSlot, setTimeSlot] = useState('8:00AM');
 
     const handleFormSubmit = (e) => {
         e.preventDefault();            
@@ -19,8 +19,8 @@ const AppointmentForm = ({ doctorName, doctorSpecialty, doctorRatings, doctorExp
     return (
         <div class="book-appointment-container">
             <div className="doctor-card-info">
-                <img className="closeButton" onClick={closeModal} src={xIcon} />
-                <img className="doctor-card-image" src={doctorImage} />
+                <img className="closeButton" onClick={closeModal} src={xIcon} alt="" />
+                <img className="doctor-card-image" src={doctorImage} alt="doctor" />
                 <div style={{ fontSize: "18px" }}><b>{doctorName}</b></div>
                 <div>{doctorSpecialty}</div>
                 <div>{doctorExperience} years of experience</div>
