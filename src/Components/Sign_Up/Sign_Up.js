@@ -24,7 +24,6 @@ const Sign_Up = () => {
             },
             body: JSON.stringify({
                 name: name,
-                lastName: lastName,
                 email: email,
                 password: password,
                 phone: phone,
@@ -36,7 +35,6 @@ const Sign_Up = () => {
         if (json.authtoken) {
             sessionStorage.setItem("auth-token", json.authtoken);
             sessionStorage.setItem("name", name);
-            sessionStorage.setItem("lastName", lastName);
             sessionStorage.setItem("phone", phone);
             sessionStorage.setItem("email", email);
             // Redirect to home page
@@ -76,6 +74,11 @@ const Sign_Up = () => {
                             First Name
                             <input value={name} onChange={(e) => setName(e.target.value)} type="text" className="form-control" name="name" id="name" placeholder="Enter your first name" required />
                         </label>
+                        {(typeof showerr !== 'string') &&
+                            <div className="err" style={{ color: 'red' }}>
+                                {showerr && showerr.find((error) => error.param === 'name')?.msg}
+                            </div>
+                        }
                     </div>
 
                     <div className="form-group">
@@ -90,7 +93,11 @@ const Sign_Up = () => {
                             Email
                             <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" name="email" id="email" className="form-control" placeholder="Enter your email" aria-describedby="helpId" />
                         </label>
-                        {showerr && <div className="err" style={{ color: 'red' }}>{showerr}</div>}
+                        {(typeof showerr === 'string') &&
+                            <div className="err" style={{ color: 'red' }}>
+                                {showerr}
+                            </div>
+                        }
                     </div>
 
                     <div className="form-group">
@@ -98,6 +105,11 @@ const Sign_Up = () => {
                             Phone Number
                             <input value={phone} onChange={(e) => setPhone(e.target.value)} type="tel" className="form-control" name="phone" id="phone" placeholder="Enter your phone number" maxLength={10} />
                         </label>
+                        {(typeof showerr !== 'string') &&
+                            <div className="err" style={{ color: 'red' }}>
+                                {showerr && showerr.find((error) => error.param === 'phone')?.msg}
+                            </div>
+                        }
                     </div>
 
                     <div className="form-group">
@@ -105,6 +117,11 @@ const Sign_Up = () => {
                             Password
                             <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" className="form-control" name="password" id="password" placeholder="Enter your password" />
                         </label>
+                        {(typeof showerr !== 'string') &&
+                            <div className="err" style={{ color: 'red' }}>
+                                {showerr && showerr.find((error) => error.param === 'password')?.msg}
+                            </div>
+                        }
                     </div>
 
                     <div className="signup-btns">
