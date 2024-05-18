@@ -42,10 +42,6 @@
     border-style: solid;
 }
 
-.login-btn:hover {
-    color: white;
-}
-
 .create-account-btn {
     background-color: white;
     color: #5685FF;
